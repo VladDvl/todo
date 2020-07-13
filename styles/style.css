@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.tasks-block div {
+    width: 33%;
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 150px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.comments-block {
+    display: flex;
+    flex-direction: column;
+}

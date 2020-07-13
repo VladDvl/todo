@@ -47,17 +47,17 @@ include_once "src/select_one.php";
         <button id="submit" type="submit" name="submit" value="update-task">Обновить задачу</button>
     </form>
 
-    <form method="post" action="src/handle_form.php">
+    <form id="create-comment" method="post" action="src/handle_form.php">
         <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
         <label for="comment">Добавить комментарий:</label>
         <input id="comment" type="text" name="body">
 
-        <button type="submit" name="submit" value="create-comment">Добавить комментарий</button>
+        <button id="submit1" type="submit" name="submit" value="create-comment">Добавить комментарий</button>
     </form>
 </div>
 
-<div class="comments-block">
+<div id="com-block" class="comments-block">
     <p>Комментарии:</p>
     <?php foreach ($comments as $comment): ?>
     <div class="comment">
@@ -68,5 +68,6 @@ include_once "src/select_one.php";
 </div>
 
 <script src="scripts/update_ajax.js"></script>
+<script src="scripts/comment_ajax.js"></script>
 </body>
 </html>

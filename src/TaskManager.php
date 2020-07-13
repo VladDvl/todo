@@ -13,6 +13,8 @@ class TaskManager extends Base {
 
     protected static $select_comments = "SELECT * FROM comments WHERE task_id = (?) ORDER BY created_at";
 
+    protected static $get_comment = "SELECT * FROM comments WHERE id = (?)";
+
     protected static $count_comments = "SELECT COUNT(*) FROM comments INNER JOIN tasks
                                      ON comments.task_id = tasks.id WHERE tasks.id = (?)";
 
@@ -59,6 +61,14 @@ class TaskManager extends Base {
         $statement = $this->doStatement(self::$select_comments, $value);
         $comments = $statement->fetchAll(\PDO::FETCH_ASSOC);
         return $comments;
+    }
+
+    public function getComment(int $id)
+    {
+        $value = [$id];
+        $statement = $this->doStatement(self::$get_comment, $value);
+        $comment = $statement->fetch(\PDO::FETCH_ASSOC);
+        return $comment;
     }
 
     public function countComments(int $task_id)

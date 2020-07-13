@@ -10,7 +10,8 @@ class CreateCommentHandler extends FormHandler {
             $body = htmlspecialchars($body);
 
             $controller = new CommentController(new TaskManager());
-            $controller->addComment($id, $body);
+            $result = $controller->addComment($id, $body);
+            return $result;
         } else {
             throw new \Exception("Invalid input");
         }

@@ -50,14 +50,17 @@ class TaskController extends Controller {
     {
         $result = $this->manager->addTask($name, $description, $status);
 
-        return $result;
         //header("Location: ../index.php");
+
+        return $result;
     }
 
     public function updateTask($status, $id)
     {
-        $this->manager->updateTask($status, $id);
+        $result = $this->manager->updateTask($status, $id);
 
         //header("Location: ../index.php");
+
+        return $result;
     }
 }

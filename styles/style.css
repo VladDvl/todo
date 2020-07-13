@@ -15,6 +15,10 @@ body {
     padding-left: 10px;
 }
 
+.tasks-block div:last-child {
+    padding-right: 10px;
+}
+
 .task-block {
     display: flex;
     flex-direction: column;

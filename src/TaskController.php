@@ -1,13 +1,6 @@
 <?php
 
-class TaskController {
-    private $manager;
-
-    public function __construct(TaskManager $manager)
-    {
-        $this->manager = $manager;
-    }
-
+class TaskController extends Controller {
     public function selectTasks()
     {
         $tasks = $this->manager->selectAllTasks();
@@ -60,9 +53,6 @@ class TaskController {
 
             $this->manager->updateTask($_POST['status'], $_POST['id']);
 
-            if (!empty($_POST['body'])) {
-                $this->manager->addComment($_POST['id'], $_POST['body']);
-            }
         }
 
         header("Location: ../index.php");

@@ -49,6 +49,15 @@ button {
     margin: 20px 0 20px 10px;
 }
 
+.forms-block {
+    display: flex;
+    flex-direction: row;
+}
+
+.forms-block form:nth-child(2) button {
+    width: 200px;
+}
+
 form {
     display: flex;
     flex-direction: column;

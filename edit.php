@@ -22,29 +22,37 @@ include_once "src/select_one.php";
     </div>
 </div>
 
-<form method="post" action="src/update_task.php">
-    <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
+<div class="forms-block">
+    <form method="post" action="src/update_task.php">
+        <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
-    <label for="status">Статус:</label>
-    <select id="status" name="status" required>
-        <?php
-        $options = ['TODO', 'DOING', 'DONE'];
-        foreach ($options as $option)
-        {
-            if ($task['status'] == $option) {
-                echo "<option selected>$option</option>";
-            } else {
-                echo "<option>$option</option>";
+        <label for="status">Статус:</label>
+        <select id="status" name="status" required>
+            <?php
+            $options = ['TODO', 'DOING', 'DONE'];
+            foreach ($options as $option)
+            {
+                if ($task['status'] == $option) {
+                    echo "<option selected>$option</option>";
+                } else {
+                    echo "<option>$option</option>";
+                }
             }
-        }
-        ?>
-    </select>
+            ?>
+        </select>
 
-    <label for="comment">Добавить комментарий:</label>
-    <input id="comment" type="text" name="body">
+        <button type="submit" name="submit" value="send">Обновить задачу</button>
+    </form>
 
-    <button type="submit" name="submit" value="send">Обновить задачу</button>
-</form>
+    <form method="post" action="src/create_comment.php">
+        <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
+
+        <label for="comment">Добавить комментарий:</label>
+        <input id="comment" type="text" name="body">
+
+        <button type="submit" name="submit" value="send">Добавить комментарий</button>
+    </form>
+</div>
 
 <div class="comments-block">
     <p>Комментарии:</p>

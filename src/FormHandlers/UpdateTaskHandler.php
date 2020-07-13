@@ -9,6 +9,7 @@ class UpdateTaskHandler extends FormHandler {
 
             $controller = new TaskController(new TaskManager());
             $controller->updateTask($status, $id);
+            return $status;
         } else {
             throw new \Exception("Invalid input");
         }

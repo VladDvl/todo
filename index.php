@@ -66,7 +66,7 @@ include_once "src/select_tasks.php";
 
 <button id="show-btn">Создать задачу</button>
 
-<form id="create-form" method="post" action="index.php">
+<form id="create-form" method="post" action="src/handle_form.php">
     <label for="name">Название</label>
     <input id="name" type="text" name="name" required>
 

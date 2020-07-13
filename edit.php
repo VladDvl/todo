@@ -21,13 +21,13 @@ include_once "src/select_one.php";
     <div class="task">
         <p>Имя: <?= $task['name'] ?></p>
         <p>Описание: <?= $task['description'] ?></p>
-        <p>Статус: <?= $task['status'] ?></p>
+        <p id="task-status">Статус: <?= $task['status'] ?></p>
     </div>
 </div>
 
 <div class="forms-block">
-    <form method="post" action="src/handle_form.php">
-        <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
+    <form id="update-task" method="post" action="src/handle_form.php">
+        <input id="id" type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
         <label for="status">Статус:</label>
         <select id="status" name="status" required>
@@ -44,7 +44,7 @@ include_once "src/select_one.php";
             ?>
         </select>
 
-        <button type="submit" name="submit" value="update-task">Обновить задачу</button>
+        <button id="submit" type="submit" name="submit" value="update-task">Обновить задачу</button>
     </form>
 
     <form method="post" action="src/handle_form.php">
@@ -67,5 +67,6 @@ include_once "src/select_one.php";
     <?php endforeach; ?>
 </div>
 
+<script src="scripts/update_ajax.js"></script>
 </body>
 </html>

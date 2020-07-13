@@ -17,7 +17,7 @@ include_once "src/select_tasks.php";
 <div class="tasks-block">
     <div>
         <h2>TODO</h2>
-        <ol>
+        <ol id="todo-list">
         <?php foreach ($tasksTodo as $task): ?>
         <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
@@ -33,7 +33,7 @@ include_once "src/select_tasks.php";
 
     <div>
         <h2>DOING</h2>
-        <ol>
+        <ol id="doing-list">
         <?php foreach ($tasksDoing as $task): ?>
         <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
@@ -49,7 +49,7 @@ include_once "src/select_tasks.php";
 
     <div>
         <h2>DONE</h2>
-        <ol>
+        <ol id="done-list">
         <?php foreach ($tasksDone as $task): ?>
         <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
@@ -66,7 +66,7 @@ include_once "src/select_tasks.php";
 
 <button id="show-btn">Создать задачу</button>
 
-<form id="create-form" method="post" action="src/handle_form.php">
+<form id="create-form" method="post" action="index.php">
     <label for="name">Название</label>
     <input id="name" type="text" name="name" required>
 
@@ -80,9 +80,10 @@ include_once "src/select_tasks.php";
         <option>DONE</option>
     </select>
 
-    <button type="submit" name="submit" value="create-task">Создать</button>
+    <button id="submit" type="submit" name="submit" value="create-task">Создать</button>
 </form>
 
 <script src="scripts/script.js"></script>
+<script src="scripts/send_task.js"></script>
 </body>
 </html>

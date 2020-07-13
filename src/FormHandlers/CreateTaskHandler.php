@@ -13,7 +13,8 @@ class CreateTaskHandler extends FormHandler {
             $status = htmlspecialchars($_POST['status']);
 
             $controller = new TaskController(new TaskManager());
-            $controller->createTask($name, $description, $status);
+            $result = $controller->createTask($name, $description, $status);
+            return $result;
         } else {
             throw new \Exception("Invalid input");
         }

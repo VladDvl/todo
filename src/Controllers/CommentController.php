@@ -5,6 +5,6 @@ class CommentController extends Controller {
     {
         $this->manager->addComment($id, $body);
 
-        header("Location: ../index.php");
+        //header("Location: ../index.php");
     }
 }

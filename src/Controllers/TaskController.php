@@ -26,6 +26,15 @@ class TaskController extends Controller {
         return $vars;
     }
 
+    public function loadTask($id)
+    {
+        $task = $this->manager->selectTask($id);
+        $task_id = $task['id'];
+        $comments = $this->manager->countComments($task_id);
+        $task['comments'] = $comments;
+        return $task;
+    }
+
     public function selectOne()
     {
         $task_id = $_GET['id'];
@@ -39,15 +48,16 @@ class TaskController extends Controller {
 
     public function createTask($name, $description, $status)
     {
-        $this->manager->addTask($name, $description, $status);
+        $result = $this->manager->addTask($name, $description, $status);
 
-        header("Location: ../index.php");
+        return $result;
+        //header("Location: ../index.php");
     }
 
     public function updateTask($status, $id)
     {
         $this->manager->updateTask($status, $id);
 
-        header("Location: ../index.php");
+        //header("Location: ../index.php");
     }
 }

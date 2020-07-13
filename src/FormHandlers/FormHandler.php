@@ -5,7 +5,7 @@ abstract class FormHandler {
     const UPDATE_TASK = 'update-task';
     const CREATE_COMMENT = 'create-comment';
 
-    public static function init($flag_str)
+    public static function init(string $flag_str)
     {
         switch ($flag_str) {
             case self::CREATE_TASK:

@@ -11,7 +11,7 @@ class UpdateTaskHandler extends FormHandler {
             $controller->updateTask($status, $id);
             return $status;
         } else {
-            throw new \Exception("Invalid input");
+            exit("Invalid input");
         }
     }
 }

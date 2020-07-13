@@ -13,7 +13,7 @@ class CreateCommentHandler extends FormHandler {
             $result = $controller->addComment($id, $body);
             return $result;
         } else {
-            throw new \Exception("Invalid input");
+            exit("Invalid input");
         }
     }
 }

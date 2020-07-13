@@ -16,7 +16,7 @@ class CreateTaskHandler extends FormHandler {
             $result = $controller->createTask($name, $description, $status);
             return $result;
         } else {
-            throw new \Exception("Invalid input");
+            exit("Invalid input");
         }
     }
 }

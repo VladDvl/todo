@@ -1,16 +1,14 @@
 <?php
 
 class CommentController extends Controller {
-    public function addComment($id, $body)
+    public function addComment(int $id, string $body)
     {
         $result = $this->manager->addComment($id, $body);
-
-        //header("Location: ../index.php");
 
         return $result;
     }
 
-    public function getComment($id)
+    public function getComment(int $id)
     {
         $result = $this->manager->getComment($id);
 

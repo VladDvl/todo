@@ -10,7 +10,7 @@ class TaskController extends Controller {
         $tasksDone = [];
         foreach ($tasks as $task)
         {
-            $task_id = $task['id'];
+            $task_id = intval($task['id']);
             $comments = $this->manager->countComments($task_id);
             $task['comments'] = $comments;
 
@@ -26,10 +26,10 @@ class TaskController extends Controller {
         return $vars;
     }
 
-    public function loadTask($id)
+    public function loadTask(int $id)
     {
         $task = $this->manager->selectTask($id);
-        $task_id = $task['id'];
+        $task_id = intval($task['id']);
         $comments = $this->manager->countComments($task_id);
         $task['comments'] = $comments;
         return $task;
@@ -37,29 +37,29 @@ class TaskController extends Controller {
 
     public function selectOne()
     {
-        $task_id = $_GET['id'];
+        $task_id = intval($_GET['id']);
 
         $task = $this->manager->selectTask($task_id);
-        $comments = $this->manager->selectComments($task_id);
+        if (!empty($task)) {
+            $comments = $this->manager->selectComments($task_id);
 
-        $vars = compact('task','comments');
-        return $vars;
+            $vars = compact('task','comments');
+            return $vars;
+        } else {
+            header("Location: index.php");
+        }
     }
 
-    public function createTask($name, $description, $status)
+    public function createTask(string $name, string $description, string $status)
     {
         $result = $this->manager->addTask($name, $description, $status);
-
-        //header("Location: ../index.php");
 
         return $result;
     }
 
-    public function updateTask($status, $id)
+    public function updateTask(string $status, int $id)
     {
         $result = $this->manager->updateTask($status, $id);
-
-        //header("Location: ../index.php");
 
         return $result;
     }

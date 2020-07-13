@@ -11,19 +11,33 @@ include_once "src/select_one.php";
 </head>
 <body>
 
-<h2>Task</h2>
-<p>Имя: <?= $task['name'] ?></p>
-<p>Описание: <?= $task['description'] ?></p>
-<p>Статус: <?= $task['status'] ?></p>
+<div class="task-block">
+    <a href="index.php">
+        <h2>Tasks</h2>
+    </a>
+    <div class="task">
+        <p>Имя: <?= $task['name'] ?></p>
+        <p>Описание: <?= $task['description'] ?></p>
+        <p>Статус: <?= $task['status'] ?></p>
+    </div>
+</div>
 
 <form method="post" action="src/update_task.php">
     <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
-    <label for="status">Статус</label>
+    <label for="status">Статус:</label>
     <select id="status" name="status" required>
-        <option>TODO</option>
-        <option>DOING</option>
-        <option>DONE</option>
+        <?php
+        $options = ['TODO', 'DOING', 'DONE'];
+        foreach ($options as $option)
+        {
+            if ($task['status'] == $option) {
+                echo "<option selected>$option</option>";
+            } else {
+                echo "<option>$option</option>";
+            }
+        }
+        ?>
     </select>
 
     <label for="comment">Добавить комментарий:</label>
@@ -35,8 +49,10 @@ include_once "src/select_one.php";
 <div class="comments-block">
     <p>Комментарии:</p>
     <?php foreach ($comments as $comment): ?>
+    <div class="comment">
         <p><?= $comment['body'] ?></p>
         <p><?= $comment['created_at'] ?></p>
+    </div>
     <?php endforeach; ?>
 </div>
 

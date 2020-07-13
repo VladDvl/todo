@@ -14,38 +14,50 @@ include_once "src/select_tasks.php";
 <div class="tasks-block">
     <div>
         <h2>TODO</h2>
+        <ol>
         <?php foreach ($tasksTodo as $task): ?>
+        <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
                 <p><?= $task['name'] ?></p>
             </a>
             <p>Описание: <?= $task['description'] ?></p>
             <p>Комментариев: <?= $task['comments'] ?></p>
             <p>Создана: <?= $task['created_at'] ?></p>
+        </li>
         <? endforeach; ?>
+        </ol>
     </div>
 
     <div>
         <h2>DOING</h2>
+        <ol>
         <?php foreach ($tasksDoing as $task): ?>
+        <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
                 <p><?= $task['name'] ?></p>
             </a>
             <p>Описание: <?= $task['description'] ?></p>
             <p>Комментариев: <?= $task['comments'] ?></p>
             <p>Создана: <?= $task['created_at'] ?></p>
+        </li>
         <?php endforeach; ?>
+        </ol>
     </div>
 
     <div>
         <h2>DONE</h2>
+        <ol>
         <?php foreach ($tasksDone as $task): ?>
+        <li>
             <a href="<?= "edit.php?id={$task['id']}" ?>">
                 <p><?= $task['name'] ?></p>
             </a>
             <p>Описание: <?= $task['description'] ?></p>
             <p>Комментариев: <?= $task['comments'] ?></p>
             <p>Создана: <?= $task['created_at'] ?></p>
+        </li>
         <?php endforeach; ?>
+        </ol>
     </div>
 </div>
 

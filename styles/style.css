@@ -1,6 +1,7 @@
 body {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
 .tasks-block {
@@ -10,21 +11,74 @@ body {
 
 .tasks-block div {
     width: 33%;
+    padding-left: 10px;
+}
+
+.task-block {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px 10px 10px;
+}
+
+.task {
+    background-color: #cccccc;
+    border-radius: 10px;
+    padding-left: 4px;
+}
+
+ol {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding-left: 4px;
+    background-color: #cccccc;
+    border-radius: 10px;
 }
 
 button {
-    margin-top: 20px;
-    margin-bottom: 20px;
     width: 150px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background-color: #6CFA6E;
+    cursor: pointer;
+}
+
+#show-btn {
+    margin: 20px 0 20px 10px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     width: 500px;
+    margin-left: 10px;
+    padding: 4px;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+}
+
+form * {
+    margin: 3px 0 3px 0;
 }
 
 .comments-block {
     display: flex;
     flex-direction: column;
+    margin: 0 10px 0 10px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #aaaaaa;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 0 0 6px 0;
+}
+
+.comment p {
+    margin: 0;
 }

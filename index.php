@@ -1,4 +1,7 @@
 <?php
+include_once('autoloader.php');
+spl_autoload_register('autoload');
+
 include_once "src/select_tasks.php";
 ?>
 

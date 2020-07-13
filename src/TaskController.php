@@ -37,23 +37,16 @@ class TaskController extends Controller {
         return $vars;
     }
 
-    public function createTask()
+    public function createTask($name, $description, $status)
     {
-        if ($_POST['submit'] == 'send') {
-
-            $this->manager->addTask($_POST['name'], $_POST['description'], $_POST['status']);
-        }
+        $this->manager->addTask($name, $description, $status);
 
         header("Location: ../index.php");
     }
 
-    public function updateTask()
+    public function updateTask($status, $id)
     {
-        if ($_POST['submit'] == 'send') {
-
-            $this->manager->updateTask($_POST['status'], $_POST['id']);
-
-        }
+        $this->manager->updateTask($status, $id);
 
         header("Location: ../index.php");
     }

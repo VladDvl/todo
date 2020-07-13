@@ -63,7 +63,7 @@ include_once "src/select_tasks.php";
 
 <button id="show-btn">Создать задачу</button>
 
-<form id="create-form" method="post" action="src/create_task.php">
+<form id="create-form" method="post" action="src/handle_form.php">
     <label for="name">Название</label>
     <input id="name" type="text" name="name" required>
 
@@ -77,7 +77,7 @@ include_once "src/select_tasks.php";
         <option>DONE</option>
     </select>
 
-    <button type="submit" name="submit" value="send">Создать</button>
+    <button type="submit" name="submit" value="create-task">Создать</button>
 </form>
 
 <script src="scripts/script.js"></script>

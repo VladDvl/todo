@@ -23,7 +23,7 @@ include_once "src/select_one.php";
 </div>
 
 <div class="forms-block">
-    <form method="post" action="src/update_task.php">
+    <form method="post" action="src/handle_form.php">
         <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
         <label for="status">Статус:</label>
@@ -41,16 +41,16 @@ include_once "src/select_one.php";
             ?>
         </select>
 
-        <button type="submit" name="submit" value="send">Обновить задачу</button>
+        <button type="submit" name="submit" value="update-task">Обновить задачу</button>
     </form>
 
-    <form method="post" action="src/create_comment.php">
+    <form method="post" action="src/handle_form.php">
         <input type="hidden" name="id" value="<?= $task['id'] ?>" required>
 
         <label for="comment">Добавить комментарий:</label>
         <input id="comment" type="text" name="body">
 
-        <button type="submit" name="submit" value="send">Добавить комментарий</button>
+        <button type="submit" name="submit" value="create-comment">Добавить комментарий</button>
     </form>
 </div>
 
